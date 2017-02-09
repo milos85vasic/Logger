@@ -1,2 +1,2 @@
 # Logger
-Simple application events logger
+Simple application events logger V1.0
