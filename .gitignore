@@ -81,3 +81,5 @@ samples/*
 build/*
 
 .gradle/*
+
+gradle*
