@@ -2,9 +2,10 @@ package net.milosvasic.`try`.logger
 
 import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
+import java.io.File
 
-// val logger = ConsoleLogger()
-val logger = FilesystemLogger()
+val logger = ConsoleLogger()
+val loggerFs = FilesystemLogger(getHome())
 
 private class TryMeNow
 
@@ -29,4 +30,20 @@ fun main(args: Array<String>) {
     logger.e(TryMeNow::class, "Multiline log:\nThis is a simple multiline log.\nThis is a simple multiline log.")
     logger.d(Other::class, "This is a simple debug log.")
     logger.c(Other::class, "This is a confirmation.")
+
+    for (x in 0..100) {
+        loggerFs.v(Other::class, "Verbose [ $x ]")
+        loggerFs.i(Other::class, "Info [ $x ]")
+        loggerFs.w(Other::class, "Warning [ $x ]")
+        loggerFs.c(Other::class, "- - - - - - - - - - - - -")
+    }
+}
+
+fun getHome(): File {
+    val home = System.getProperty("user.home")
+    val root = File("$home${File.separator}Logger_Logs")
+    if (!root.exists()) {
+        root.mkdirs()
+    }
+    return root
 }

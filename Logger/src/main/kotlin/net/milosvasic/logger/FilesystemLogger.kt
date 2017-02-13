@@ -9,6 +9,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
 
     var extension = "log"
     var structured = true
+    private val calendar = GregorianCalendar()
     private val loggingPattern = "[ %s ][ %s ][ %s ] %s"
     private val filenameDateFormat = SimpleDateFormat("Y_M_d")
 
@@ -112,9 +113,18 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
 
     private fun getDestination(): File {
         var home = root
-        val filename = "${filenameDateFormat.format(Date())}.$extension"
+        val date = Date()
+        val filename = "${filenameDateFormat.format(date)}.$extension"
         if (structured) {
-            // TODO: To be implemented.
+            val builder = StringBuilder(root.absolutePath)
+            builder.append(File.separator)
+            builder.append(calendar.get(Calendar.YEAR))
+            builder.append(File.separator)
+            builder.append(calendar.get(Calendar.MONTH))
+            home = File(builder.toString())
+            if (!home.exists()) {
+                home.mkdirs()
+            }
         }
         return File(home.absolutePath, filename)
     }
