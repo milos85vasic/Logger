@@ -1,11 +1,14 @@
 # Logger, version 1.1.0
 Simple application logger for Kotlin with support for multiple log levels.
+
 ## Implementations
 The following implementations are available:
 - Console logger
 - Filesystem logger
+
 ## Console logger 
 Each log level is printed using appropriate color to console output.
+
 ### How to use console logger
 - Import
 ```
@@ -19,6 +22,7 @@ val logger = ConsoleLogger()
 ```
 logger.v(SomeClass::class, "This is a simple verbose log.")
 ```
+
 ## Filesystem logger
 Logs are written on filesystem file.
 
@@ -34,6 +38,7 @@ or change file extension:
 ```
 logger.extension = "txt"
 ```
+
 ### How to use console logger
 - Import
 ```
@@ -54,6 +59,7 @@ val logger = FilesystemLogger(file)
 ```
 logger.v(SomeClass::class, "This is a simple verbose log.")
 ```
+
 ## Supported log types
 - Verbose
 ```
