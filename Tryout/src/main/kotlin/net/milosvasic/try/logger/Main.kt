@@ -1,8 +1,10 @@
 package net.milosvasic.`try`.logger
 
 import net.milosvasic.logger.ConsoleLogger
+import net.milosvasic.logger.FilesystemLogger
 
-val logger = ConsoleLogger()
+// val logger = ConsoleLogger()
+val logger = FilesystemLogger()
 
 private class TryMeNow
 
