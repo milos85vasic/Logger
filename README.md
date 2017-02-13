@@ -6,18 +6,52 @@ The following implementations are available:
 - Filesystem logger
 ### Console logger 
 Each log level is printed using appropriate color to console output.
-### Filesystem logger
-Logs are written on filesystem file.
-## How to use
-- Import:
+
+#### How to use console logger
+- Import
 ```
 import net.milosvasic.logger.ConsoleLogger
 ```
-- Instantiate:
+- Instantiate
 ```
 val logger = ConsoleLogger()
 ```
-- Use:
+- Use
+```
+logger.v(SomeClass::class, "This is a simple verbose log.")
+```
+### Filesystem logger
+Logs are written on filesystem file.
+
+By default file structure is created like this:
+```
+rootFolder/year/month/file.log
+```
+You can make folder structure flat:
+```
+logger.structured = false
+```
+or change file extension:
+```
+logger.extension = "txt"
+```
+#### How to use console logger
+- Import
+```
+import net.milosvasic.logger.FilesystemLogger
+```
+- Instantiate
+
+To print logs in file located relatively to app you executed: 
+```
+val logger = FilesystemLogger()
+```
+or to provide destination folder where you want your log to be printed: 
+```
+val file = File("someRootFolder/etc/etc")
+val logger = FilesystemLogger(file)
+```
+- Use
 ```
 logger.v(SomeClass::class, "This is a simple verbose log.")
 ```

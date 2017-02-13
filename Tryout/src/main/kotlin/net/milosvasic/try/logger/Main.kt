@@ -31,6 +31,8 @@ fun main(args: Array<String>) {
     logger.d(Other::class, "This is a simple debug log.")
     logger.c(Other::class, "This is a confirmation.")
 
+    //    loggerFs.structured = false
+    //    loggerFs.extension = "xxx"
     for (x in 0..100) {
         loggerFs.v(Other::class, "Verbose [ $x ]")
         loggerFs.i(Other::class, "Info [ $x ]")
