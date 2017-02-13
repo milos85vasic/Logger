@@ -30,5 +30,12 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
 
-version = 1.0
+int alpha = 0
+int versionNumber = 1
+int secondaryVersion = 1
+int tertiaryVersion = 0
+version = String.format("%d.%d.%d", versionNumber, secondaryVersion, tertiaryVersion)
+if (alpha > 0) {
+    version += "_Alpha_" + alpha
+}
 jar.archiveName = "Logger_V" + version + ".jar"

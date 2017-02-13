@@ -1,9 +1,13 @@
-# Logger, version 1.0
+# Logger, version 1.1.0
 Simple application logger for Kotlin with support for multiple log levels.
 ## Implementations
 The following implementations are available:
+- Console logger
+- Filesystem logger
 ### Console logger 
 Each log level is printed using appropriate color to console output.
+### Filesystem logger
+Logs are written on filesystem file.
 ## How to use
 - Import:
 ```
