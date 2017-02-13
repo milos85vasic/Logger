@@ -4,10 +4,9 @@ Simple application logger for Kotlin with support for multiple log levels.
 The following implementations are available:
 - Console logger
 - Filesystem logger
-### Console logger 
+## Console logger 
 Each log level is printed using appropriate color to console output.
-
-#### How to use console logger
+### How to use console logger
 - Import
 ```
 import net.milosvasic.logger.ConsoleLogger
@@ -20,7 +19,7 @@ val logger = ConsoleLogger()
 ```
 logger.v(SomeClass::class, "This is a simple verbose log.")
 ```
-### Filesystem logger
+## Filesystem logger
 Logs are written on filesystem file.
 
 By default file structure is created like this:
@@ -35,7 +34,7 @@ or change file extension:
 ```
 logger.extension = "txt"
 ```
-#### How to use console logger
+### How to use console logger
 - Import
 ```
 import net.milosvasic.logger.FilesystemLogger
