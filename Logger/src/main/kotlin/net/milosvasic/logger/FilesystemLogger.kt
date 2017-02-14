@@ -13,6 +13,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     private val loggingPattern = "[ %s ][ %s ][ %s ] %s"
     private val filenameDateFormat = SimpleDateFormat("Y_M_d")
 
+    @Synchronized
     override fun v(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -22,11 +23,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
+    @Synchronized
     override fun d(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -36,11 +37,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
+    @Synchronized
     override fun c(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -50,11 +51,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
+    @Synchronized
     override fun n(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -64,11 +65,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
+    @Synchronized
     override fun i(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -78,11 +79,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
+    @Synchronized
     override fun w(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -92,11 +93,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
+    @Synchronized
     override fun e(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
@@ -106,9 +107,8 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                         getDatetime(),
                         tagValue,
                         getMessage(message, tagValue)
-                )
+                ) + "\n"
         )
-        getDestination().appendText("\n")
     }
 
     private fun getDestination(): File {

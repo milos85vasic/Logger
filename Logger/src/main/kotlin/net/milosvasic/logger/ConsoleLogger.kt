@@ -7,6 +7,7 @@ class ConsoleLogger : CommonLogger() {
     private val output = System.out
     private val loggingPattern = "%s[ %s ][ %s ][ %s ] %s%s"
 
+    @Synchronized
     override fun v(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(
@@ -22,6 +23,7 @@ class ConsoleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
     override fun d(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(
@@ -37,6 +39,7 @@ class ConsoleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
     override fun c(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(
@@ -52,6 +55,7 @@ class ConsoleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
     override fun n(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(
@@ -67,6 +71,7 @@ class ConsoleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
     override fun i(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(
@@ -82,6 +87,7 @@ class ConsoleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
     override fun w(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(
@@ -97,6 +103,7 @@ class ConsoleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
     override fun e(tag: KClass<*>, message: String) {
         val tagValue = getTag(tag)
         output.println(

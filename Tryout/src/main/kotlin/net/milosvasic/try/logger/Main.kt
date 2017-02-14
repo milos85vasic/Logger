@@ -39,6 +39,13 @@ fun main(args: Array<String>) {
         loggerFs.w(Other::class, "Warning [ $x ]")
         loggerFs.c(Other::class, "- - - - - - - - - - - - -")
     }
+
+    for(x in 0..10){
+        Thread(Runnable {
+            loggerFs.e(Other::class, "Appending $x")
+        }).start()
+    }
+
 }
 
 fun getHome(): File {
