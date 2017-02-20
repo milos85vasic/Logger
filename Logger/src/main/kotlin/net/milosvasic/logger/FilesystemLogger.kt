@@ -3,14 +3,17 @@ package net.milosvasic.logger
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.reflect.KClass
 
 class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : CommonLogger() {
 
-    var extension = "log"
-    var structured = true
+    private var extension = "log"
     private val calendar = GregorianCalendar()
+    private var structured = AtomicBoolean(true)
     private val loggingPattern = "[ %s ][ %s ][ %s ] %s"
+    private var maxFileSize = AtomicInteger(3)
     private val filenameDateFormat = SimpleDateFormat("Y_M_d")
 
     @Synchronized
@@ -111,11 +114,36 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
         )
     }
 
+    fun isStructured(): Boolean {
+        return structured.get()
+    }
+
+    fun setStructured(structured: Boolean) {
+        this.structured.set(structured)
+    }
+
+    fun getMaxLogFileSizeInMegabytes(): Int {
+        return maxFileSize.get()
+    }
+
+    fun setMaxLogFileSizeInMegabytes(size: Int) {
+        maxFileSize.set(size)
+    }
+
+    fun getLogFileExtension(): String {
+        return extension
+    }
+
+    @Synchronized
+    fun setLogFileExtension(extension: String) {
+        this.extension = extension
+    }
+
     private fun getDestination(): File {
         var home = root
         val date = Date()
-        val filename = "${filenameDateFormat.format(date)}.$extension"
-        if (structured) {
+
+        if (structured.get()) {
             val builder = StringBuilder(root.absolutePath)
             builder.append(File.separator)
             builder.append(calendar.get(Calendar.YEAR))
@@ -126,7 +154,15 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
                 home.mkdirs()
             }
         }
-        return File(home.absolutePath, filename)
+        var suffix = 0
+        var filename = "${filenameDateFormat.format(date)}_$suffix.$extension"
+        var file = File(home.absolutePath, filename)
+        while (file.exists() && file.length() / 1024 / 1024 > maxFileSize.get()) {
+            suffix++
+            filename = "${filenameDateFormat.format(date)}_$suffix.$extension"
+            file = File(home.absolutePath, filename)
+        }
+        return file
     }
 
 }
