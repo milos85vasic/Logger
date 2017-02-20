@@ -142,7 +142,6 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     private fun getDestination(): File {
         var home = root
         val date = Date()
-
         if (structured.get()) {
             val builder = StringBuilder(root.absolutePath)
             builder.append(File.separator)
@@ -155,14 +154,16 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
             }
         }
         var suffix = 0
-        var filename = "${filenameDateFormat.format(date)}_$suffix.$extension"
+        var filename = getFilename(date, suffix)
         var file = File(home.absolutePath, filename)
         while (file.exists() && file.length() / 1024 / 1024 > maxFileSize.get()) {
             suffix++
-            filename = "${filenameDateFormat.format(date)}_$suffix.$extension"
+            filename = getFilename(date, suffix)
             file = File(home.absolutePath, filename)
         }
         return file
     }
+
+    private fun getFilename(date: Date, suffix: Int) = "${filenameDateFormat.format(date)}_$suffix.$extension"
 
 }

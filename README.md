@@ -32,11 +32,16 @@ rootFolder/year/month/file.log
 ```
 You can make folder structure flat:
 ```
-logger.structured = false
+logger.setStructured(false)
 ```
 or change file extension:
 ```
-logger.extension = "txt"
+logger.setLogFileExtension("txt")
+```
+Filesystem logger has maximal file size of 3 megabytes. When limit is reached file is split.
+You can change that limit:
+```
+logger.setMaxLogFileSizeInMegabytes(10)
 ```
 
 ### How to use console logger
