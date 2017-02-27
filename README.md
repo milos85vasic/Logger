@@ -63,7 +63,7 @@ You can change that limit:
 logger.setMaxLogFileSizeInMegabytes(10)
 ```
 
-### How to use console logger
+### How to use filesystem logger
 - Import
 ```
 import net.milosvasic.logger.FilesystemLogger
