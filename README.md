@@ -1,4 +1,4 @@
-# Logger, version 1.1.2
+# Logger
 Simple application logger for Kotlin with support for multiple log levels.
 
 ## Implementations
