@@ -8,13 +8,6 @@ The following implementations are available:
 - Filesystem logger
 - Composite logger
 
-## Building
-To build library without deploying to maven repo change Logger module's build.gradle like this:
-```
-
-```
-
-
 ## Simple logger 
 Each log level is printed using appropriate color to console output containing various information
 
