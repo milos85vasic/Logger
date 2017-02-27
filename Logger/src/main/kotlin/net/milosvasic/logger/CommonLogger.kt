@@ -22,7 +22,7 @@ abstract class CommonLogger : Logger {
         return getText(tagValue, tagLength)
     }
 
-    protected fun getMessage(message: String, tag: String): String {
+    open protected fun getMessage(message: String, tag: String): String {
         if (message.contains("\n")) {
             val builder = StringBuilder()
             val items = message.split("\n")

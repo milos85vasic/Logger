@@ -3,11 +3,30 @@ Simple application logger for Kotlin with support for multiple log levels.
 
 ## Implementations
 The following implementations are available:
+- Simple logger
 - Console logger
 - Filesystem logger
+- Composite logger
+
+## Simple logger 
+Each log level is printed using appropriate color to console output containing various information
+
+### How to use simple logger
+- Import
+```
+import net.milosvasic.logger.SimpleLogger
+```
+- Instantiate
+```
+val logger = SimpleLogger()
+```
+- Use
+```
+logger.v(SomeClass::class, "This is a simple verbose log.")
+```
 
 ## Console logger 
-Each log level is printed using appropriate color to console output.
+Each log level is printed using appropriate color to console output containing only message
 
 ### How to use console logger
 - Import
@@ -64,6 +83,12 @@ val logger = FilesystemLogger(file)
 ```
 logger.v(SomeClass::class, "This is a simple verbose log.")
 ```
+
+## Composite logger 
+It is possible to instantiate logger that will forward log information to multiple loggers.
+
+### How to use composite logger
+TBD.
 
 ## Supported log types
 - Verbose
