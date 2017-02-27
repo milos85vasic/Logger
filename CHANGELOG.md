@@ -3,3 +3,4 @@
 - Changed Gradle building mechanism.
 - Introduced simple logger
 - Introduced composite logger
+- Filesystem logger fixes

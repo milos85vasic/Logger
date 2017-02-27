@@ -145,9 +145,11 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
         if (structured.get()) {
             val builder = StringBuilder(root.absolutePath)
             builder.append(File.separator)
+            builder.append("Logs")
+            builder.append(File.separator)
             builder.append(calendar.get(Calendar.YEAR))
             builder.append(File.separator)
-            builder.append(calendar.get(Calendar.MONTH))
+            builder.append(calendar.get(Calendar.MONTH) + 1)
             home = File(builder.toString())
             if (!home.exists()) {
                 home.mkdirs()

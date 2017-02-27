@@ -8,6 +8,13 @@ The following implementations are available:
 - Filesystem logger
 - Composite logger
 
+## Building
+To build library without deploying to maven repo change Logger module's build.gradle like this:
+```
+
+```
+
+
 ## Simple logger 
 Each log level is printed using appropriate color to console output containing various information
 
@@ -88,7 +95,28 @@ logger.v(SomeClass::class, "This is a simple verbose log.")
 It is possible to instantiate logger that will forward log information to multiple loggers.
 
 ### How to use composite logger
-TBD.
+- Import
+```
+import net.milosvasic.logger.CompositeLogger
+import net.milosvasic.logger.FilesystemLogger
+import net.milosvasic.logger.SimpleLogger
+```
+- Instantiate and configure
+```
+val tag = CompositeLogger::class
+
+val logger = CompositeLogger()
+val simple = SimpleLogger()
+val filesystem = FilesystemLogger(getHome())
+
+logger.addLogger(simple)
+logger.addLogger(filesystem)
+```
+- Use
+```
+logger.v(tag, message)
+```
+
 
 ## Supported log types
 - Verbose
