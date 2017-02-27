@@ -89,14 +89,11 @@ ext.setupProject = {
         } else {
             println("Couldn't initialize [ ${destination.absolutePath} ]")
         }
-}
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-    archiveName = project.name + "_V" + project.version + "_Sources.jar"
-}
-
-artifacts {
-    archives sourcesJar
+        task sourcesJar(type: Jar, dependsOn: classes) {
+            classifier = 'sources'
+            from sourceSets.main.allSource
+            archiveName = project.name + "_V" + project.version + "_Sources.jar"
+        }
+        assemble.finalizedBy(sourcesJar)
 }
