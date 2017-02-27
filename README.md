@@ -140,4 +140,30 @@ logger.w( ... ) // Printed in orange color.
 ```
 logger.e( ... ) // Prined in red color.
 ```
+# Deployment
+If you wish to deploy Logger build to remote Maven repository you can like this:
+```
+./gradlew -Pdeploy=production -Pvariant=RELEASE  assemble
+```
+For each variant you need to create appropriate credentials file, for example:
+```
+credentials_production.gradle
 
+or
+
+credentials_development.gradle
+
+or
+
+credentials_whatever.gradle
+```
+Content of credentials file will be actually a copy of default_credentials.gradle with updated fields for:
+ - FTP server address
+ - FTP username
+ - FTP password
+ 
+If you are deploying production release use parameter:
+```
+-Pvariant=RELEASE
+```
+or leave out this parameter if building dev version.
