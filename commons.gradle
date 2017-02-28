@@ -95,5 +95,14 @@ ext.setupProject = {
             from sourceSets.main.allSource
             archiveName = project.name + "_V" + project.version + "_Sources.jar"
         }
+
+        task copyRelease(type: Copy) {
+            if (buildVariant == "RELEASE") {
+                from "build${File.separator}libs"
+                into "Releases"
+            }
+        }
+
         assemble.finalizedBy(sourcesJar)
+        sourcesJar.finalizedBy(copyRelease)
 }
