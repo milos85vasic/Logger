@@ -98,6 +98,4 @@ build/*
 !libs/*.jar
 !Releases/*.jar
 
-credentials.gradle
-credentials_development.gradle
-credentials_production.gradle
+credentials*.gradle
