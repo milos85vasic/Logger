@@ -1,3 +1,8 @@
+apply from: "../build.gradle"
+apply from: "../commons.gradle"
+apply from: "../compile.gradle"
+apply from: "../deployment.gradle"
+
 final alpha = 0
 final beta = 0
 final versionNumber = 1

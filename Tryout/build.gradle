@@ -1,3 +1,8 @@
+apply from: "../build.gradle"
+apply from: "../commons.gradle"
+apply from: "../compile.gradle"
+apply from: "../application.gradle"
+
 dependencies {
     compile project(':Logger')
 }

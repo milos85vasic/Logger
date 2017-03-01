@@ -2,24 +2,35 @@ apply plugin: "java"
 apply plugin: "kotlin"
 
 buildscript {
-    ext.kotlin_version = '1.0.6'
+    ext.kotlinVersion = "1.0.6"
     repositories {
         jcenter()
         mavenCentral()
     }
-    dependencies.classpath "com.android.tools.build:gradle:2.1.0"
-    dependencies.classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    dependencies.classpath "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    dependencies.classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    dependencies.classpath "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 }
 
-configure([project(':Logger')]) {
-    apply from: "../commons.gradle"
-    apply from: "../compile.gradle"
-    apply from: "../deployment.gradle"
+repositories {
+    jcenter()
+    mavenCentral()
 }
 
-configure([project(':Tryout')]) {
-    apply from: "../commons.gradle"
-    apply from: "../compile.gradle"
-    apply from: "../application.gradle"
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+
+    compile "junit:junit:4.12"
+    testCompile "junit:junit:4.12"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
 }
+
+sourceSets.main.kotlin.srcDirs += 'src/main/java'
+sourceSets.main.kotlin.srcDirs += 'src/main/kotlin'
+sourceSets.main.kotlin.srcDirs += 'build/generated-src/java'
+sourceSets.main.kotlin.srcDirs += 'build/generated-src/kotlin'
+
