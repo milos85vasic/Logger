@@ -27,7 +27,7 @@ ext.compileRepoDep = {
             )
             String latestVersion = ""
             for (repo in repos) {
-                println(String.format("Conatcting [ %s ]", repo))
+                println(String.format("Contacting [ %s ]", repo))
                 String rawXml = ""
                 try {
                     String group = depGroup.replace(".", "/")

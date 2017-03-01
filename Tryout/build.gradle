@@ -1,19 +1,5 @@
-apply plugin: "application"
-
 dependencies {
     compile project(':Logger')
 }
 
-mainClassName = "net.milosvasic.try.logger.MainKt"
-
-jar {
-    manifest {
-        attributes "Main-Class": "net.milosvasic.try.logger.MainKt"
-    }
-
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}
-
-sourceSets.main.java.srcDirs += 'src/main/kotlin'
+setupApplication("net.milosvasic.try.logger")

@@ -1,0 +1,15 @@
+ext.setupApplication = {
+    versionPackage ->
+        apply plugin: "application"
+        mainClassName = "${versionPackage}.MainKt"
+        println("mainClassName: $mainClassName")
+        jar {
+            manifest {
+                attributes "Main-Class": "$mainClassName"
+            }
+
+            from {
+                configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+            }
+        }
+}

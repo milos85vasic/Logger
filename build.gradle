@@ -21,4 +21,5 @@ configure([project(':Logger')]) {
 configure([project(':Tryout')]) {
     apply from: "../commons.gradle"
     apply from: "../compile.gradle"
+    apply from: "../application.gradle"
 }
