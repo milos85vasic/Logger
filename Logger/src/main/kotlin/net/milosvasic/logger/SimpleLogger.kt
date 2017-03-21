@@ -8,7 +8,7 @@ class SimpleLogger : CommonLogger() {
     private val loggingPattern = "%s%s%s"
 
     @Synchronized
-    override fun v(tag: KClass<*>, message: String) {
+    override fun v(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,
@@ -20,7 +20,7 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
-    override fun d(tag: KClass<*>, message: String) {
+    override fun d(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,
@@ -32,7 +32,7 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
-    override fun c(tag: KClass<*>, message: String) {
+    override fun c(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,
@@ -44,7 +44,7 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
-    override fun n(tag: KClass<*>, message: String) {
+    override fun n(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,
@@ -56,7 +56,7 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
-    override fun i(tag: KClass<*>, message: String) {
+    override fun i(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,
@@ -68,7 +68,7 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
-    override fun w(tag: KClass<*>, message: String) {
+    override fun w(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,
@@ -80,7 +80,7 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
-    override fun e(tag: KClass<*>, message: String) {
+    override fun e(tag: String, message: String) {
         output.println(
                 String.format(
                         loggingPattern,

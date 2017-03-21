@@ -17,7 +17,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     private val filenameDateFormat = SimpleDateFormat("Y_M_d")
 
     @Synchronized
-    override fun v(tag: KClass<*>, message: String) {
+    override fun v(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -31,7 +31,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
-    override fun d(tag: KClass<*>, message: String) {
+    override fun d(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -45,7 +45,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
-    override fun c(tag: KClass<*>, message: String) {
+    override fun c(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -59,7 +59,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
-    override fun n(tag: KClass<*>, message: String) {
+    override fun n(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -73,7 +73,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
-    override fun i(tag: KClass<*>, message: String) {
+    override fun i(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -87,7 +87,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
-    override fun w(tag: KClass<*>, message: String) {
+    override fun w(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -101,7 +101,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
-    override fun e(tag: KClass<*>, message: String) {
+    override fun e(tag: String, message: String) {
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(

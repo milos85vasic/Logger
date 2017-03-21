@@ -6,7 +6,7 @@ import net.milosvasic.logger.SimpleLogger
 
 fun main(args: Array<String>) {
 
-    val tag = CompositeLogger::class
+    val tag = "[CompositeLogger]"
 
     val logger = CompositeLogger()
     val simple = SimpleLogger()

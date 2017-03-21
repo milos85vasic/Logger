@@ -14,8 +14,8 @@ abstract class CommonLogger : Logger {
 
     protected fun getDatetime(): String = getText(dateFormat.format(Date()), space - 1)
 
-    protected fun getTag(tag: KClass<*>): String {
-        var tagValue = "${tag.simpleName}"
+    protected fun getTag(tag: String): String {
+        var tagValue = tag
         if (tagValue.length >= tagLength) {
             tagValue = "${tagValue.substring(0, tagLength - 2)}..."
         }
