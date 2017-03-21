@@ -1,4 +1,4 @@
-package net.milosvasic.`try`.logger
+package net.milosvasic.tryout.logger
 
 import java.io.File
 

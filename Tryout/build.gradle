@@ -1,10 +1,48 @@
-apply from: "../build.gradle"
-apply from: "../commons.gradle"
-apply from: "../compile.gradle"
-apply from: "../application.gradle"
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url uri("http://repo.milosvasic.net/releases")
+        }
+    }
+    dependencies {
+        classpath group: 'net.milosvasic.groot', name: 'Groot', version: '1.0.0-Beta-1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-reflect:1.1.1"
+    }
+}
+
+
+apply plugin: "groot"
+apply plugin: "groot-kotlin"
+
+groot.registerRepository("http://repo.milosvasic.net/releases")
+groot.registerRepository("http://repo.milosvasic.net/development")
+
+groot.kotlin.version = "1.1.1"
+
+final alpha = 0
+final beta = 0
+final version = 1
+final secondaryVersion = 2
+final tertiaryVersion = 1
+final projectPackage = "logger"
+final projectGroup = "net.milosvasic.tryout"
+
+groot.kotlin.project.setup(
+        alpha,
+        beta,
+        version,
+        secondaryVersion,
+        tertiaryVersion,
+        projectGroup,
+        projectPackage
+)
 
 dependencies {
     compile project(':Logger')
 }
 
-setupApplication("net.milosvasic.try.logger")
+String fullPackage = groot.kotlin.project.projectPackage
+groot.kotlin.application.setup(fullPackage)
