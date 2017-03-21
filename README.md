@@ -22,7 +22,7 @@ val logger = SimpleLogger()
 ```
 - Use
 ```
-logger.v(SomeClass::class, "This is a simple verbose log.")
+logger.v(tag, "This is a simple verbose log.")
 ```
 
 ## Console logger 
@@ -39,7 +39,7 @@ val logger = ConsoleLogger()
 ```
 - Use
 ```
-logger.v(SomeClass::class, "This is a simple verbose log.")
+logger.v(tag, "This is a simple verbose log.")
 ```
 
 ## Filesystem logger
@@ -81,7 +81,7 @@ val logger = FilesystemLogger(file)
 ```
 - Use
 ```
-logger.v(SomeClass::class, "This is a simple verbose log.")
+logger.v(tag, "This is a simple verbose log.")
 ```
 
 ## Composite logger 
@@ -96,7 +96,7 @@ import net.milosvasic.logger.SimpleLogger
 ```
 - Instantiate and configure
 ```
-val tag = CompositeLogger::class
+val tag = "[something you want]"
 
 val logger = CompositeLogger()
 val simple = SimpleLogger()
