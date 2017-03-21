@@ -3,11 +3,12 @@ buildscript {
         jcenter()
         mavenCentral()
         maven {
+            // url uri(new File("${System.getProperty("user.home")}${File.separator}Groot${File.separator}Repository").absolutePath)
             url uri("http://repo.milosvasic.net/releases")
         }
     }
     dependencies {
-        classpath group: 'net.milosvasic.groot', name: 'Groot', version: '1.0.0-Beta-1'
+        classpath group: 'net.milosvasic.groot', name: 'Groot', version: '1.0.0-Beta-2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1"
         classpath "org.jetbrains.kotlin:kotlin-reflect:1.1.1"
     }
