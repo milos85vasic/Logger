@@ -26,7 +26,7 @@ final alpha = 0
 final beta = 0
 final version = 1
 final secondaryVersion = 2
-final tertiaryVersion = 1
+final tertiaryVersion = 2
 final projectPackage = "logger"
 final projectGroup = "net.milosvasic.tryout"
 

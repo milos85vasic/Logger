@@ -97,7 +97,7 @@ class SimpleLogger : CommonLogger() {
             val items = message.split("\n")
             items.forEachIndexed { i, item ->
                 if (i > 0) {
-                    builder.append("\n\t")
+                    builder.append("\n")
                 }
                 builder.append(item)
             }

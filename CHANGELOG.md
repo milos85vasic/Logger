@@ -1,3 +1,7 @@
+# Version 1.2.2
+
+- Fixed multi-line logs on simple logger.
+
 # Version 1.2.1
 
 - Switched build mechanism to [Groot](https://github.com/milos85vasic/Groot)
