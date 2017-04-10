@@ -140,6 +140,16 @@ logger.w( ... ) // Printed in orange color.
 ```
 logger.e( ... ) // Prined in red color.
 ```
+
+
+## Limiting logging to build variants
+To limit logging to build variants pass list of variants to logger constructor.
+For example:
+```
+val logger = ConsoleLogger(listOf("DEV", "STAGING"))
+```
+
+
 # Deployment
 If you wish to deploy Logger build to remote Maven repository you can like this:
 ```
