@@ -4,7 +4,7 @@ import net.milosvasic.logger.SimpleLogger
 
 fun main(args: Array<String>) {
 
-    val logger = SimpleLogger()
+    val logger = SimpleLogger(listOf("DEV"))
     val tag = "[SimpleLogger]"
 
     logger.v(tag, "This is verbose log.")

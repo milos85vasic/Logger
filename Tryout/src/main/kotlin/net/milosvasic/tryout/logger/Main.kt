@@ -4,8 +4,8 @@ import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
 import java.io.File
 
-val logger = ConsoleLogger()
-val loggerFs = FilesystemLogger(getHome())
+val logger = ConsoleLogger(listOf("DEV", "STAGING"))
+val loggerFs = FilesystemLogger(getHome(), listOf("DEV", "STAGING"))
 
 fun main(args: Array<String>) {
     val tag = "[main]"

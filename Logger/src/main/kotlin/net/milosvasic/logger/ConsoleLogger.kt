@@ -1,6 +1,6 @@
 package net.milosvasic.logger
 
-class ConsoleLogger : CommonLogger() {
+class ConsoleLogger(variants: List<String>? = null) : CommonLogger(variants) {
 
     private val output = System.out
     private val loggingPattern = "%s[ %s ][ %s ][ %s ] %s%s"
