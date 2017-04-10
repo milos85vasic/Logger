@@ -2,9 +2,8 @@ package net.milosvasic.logger
 
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.reflect.KClass
 
-abstract class CommonLogger : Logger {
+abstract class CommonLogger(val variants: List<String>? = null) : Logger {
 
     private val space = 12
     private val tagLength = 30
@@ -48,6 +47,13 @@ abstract class CommonLogger : Logger {
             builder.append(" ")
         }
         return builder.toString()
+    }
+
+    protected fun variantOk(): Boolean {
+        if (variants != null && !variants.isEmpty()) {
+            return variants.contains(BuildConfig.VARIANT)
+        }
+        return true
     }
 
 }

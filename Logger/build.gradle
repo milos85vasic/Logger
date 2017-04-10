@@ -3,7 +3,6 @@ buildscript {
         jcenter()
         mavenCentral()
         maven {
-            // url uri(new File("${System.getProperty("user.home")}${File.separator}Groot${File.separator}Repository").absolutePath)
             url uri("http://repo.milosvasic.net/releases")
         }
     }
@@ -28,7 +27,7 @@ final alpha = 0
 final beta = 0
 final version = 1
 final secondaryVersion = 2
-final tertiaryVersion = 2
+final tertiaryVersion = 3
 final projectPackage = "logger"
 final projectGroup = "net.milosvasic"
 

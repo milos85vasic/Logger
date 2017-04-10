@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.reflect.KClass
 
-class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : CommonLogger() {
+class FilesystemLogger(val root: File = File(System.getProperty("user.dir")), variants: List<String>? = null) : CommonLogger(variants) {
 
     private var extension = "log"
     private val calendar = GregorianCalendar()
@@ -18,100 +18,114 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
 
     @Synchronized
     override fun v(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.VERBOSE),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.VERBOSE),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     @Synchronized
     override fun d(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.DEBUG),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.DEBUG),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     @Synchronized
     override fun c(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.CONFIRMATION),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.CONFIRMATION),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     @Synchronized
     override fun n(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.NOTIFICATION),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.NOTIFICATION),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     @Synchronized
     override fun i(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.INFORMATION),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.INFORMATION),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     @Synchronized
     override fun w(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.WARNING),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.WARNING),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     @Synchronized
     override fun e(tag: String, message: String) {
-        val tagValue = getTag(tag)
-        getDestination().appendText(
-                String.format(
-                        loggingPattern,
-                        getLogLevel(LOG_LEVEL.ERROR),
-                        getDatetime(),
-                        tagValue,
-                        getMessage(message, tagValue)
-                ) + "\n"
-        )
+        if (variantOk()) {
+            val tagValue = getTag(tag)
+            getDestination().appendText(
+                    String.format(
+                            loggingPattern,
+                            getLogLevel(LOG_LEVEL.ERROR),
+                            getDatetime(),
+                            tagValue,
+                            getMessage(message, tagValue)
+                    ) + "\n"
+            )
+        }
     }
 
     fun isStructured(): Boolean {

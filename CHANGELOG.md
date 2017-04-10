@@ -1,3 +1,7 @@
+# Version 1.2.3
+
+- Define build variants for which we want logging possible.
+
 # Version 1.2.2
 
 - Fixed multi-line logs on simple logger.

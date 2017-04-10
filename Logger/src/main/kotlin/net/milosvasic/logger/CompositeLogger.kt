@@ -1,7 +1,5 @@
 package net.milosvasic.logger
 
-import kotlin.reflect.KClass
-
 class CompositeLogger : CommonLogger() {
 
     private val loggers = mutableListOf<Logger>()
