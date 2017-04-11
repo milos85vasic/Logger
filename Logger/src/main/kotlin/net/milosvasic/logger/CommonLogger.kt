@@ -3,7 +3,7 @@ package net.milosvasic.logger
 import java.text.SimpleDateFormat
 import java.util.*
 
-abstract class CommonLogger(val variants: List<String>? = null) : Logger {
+abstract class CommonLogger(val varinatsConfiguration: VariantsConfiguration? = null) : Logger {
 
     private val space = 12
     private val tagLength = 30
@@ -50,8 +50,15 @@ abstract class CommonLogger(val variants: List<String>? = null) : Logger {
     }
 
     protected fun variantOk(): Boolean {
-        if (variants != null && !variants.isEmpty()) {
-            return variants.contains(BuildConfig.VARIANT)
+        if (varinatsConfiguration != null
+                && varinatsConfiguration.supportedVariants != null
+                && !varinatsConfiguration.supportedVariants.isEmpty()
+                && varinatsConfiguration.currentModuleVariant != null
+                && !varinatsConfiguration.currentModuleVariant.isEmpty()) {
+
+            return varinatsConfiguration.supportedVariants.contains(
+                    varinatsConfiguration.currentModuleVariant
+            )
         }
         return true
     }

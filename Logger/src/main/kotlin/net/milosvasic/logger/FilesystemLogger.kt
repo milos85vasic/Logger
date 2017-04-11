@@ -5,9 +5,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
-import kotlin.reflect.KClass
 
-class FilesystemLogger(val root: File = File(System.getProperty("user.dir")), variants: List<String>? = null) : CommonLogger(variants) {
+class FilesystemLogger(variantsConfiguration: VariantsConfiguration? = null, val root: File = File(System.getProperty("user.dir"))) : CommonLogger(variantsConfiguration) {
 
     private var extension = "log"
     private val calendar = GregorianCalendar()

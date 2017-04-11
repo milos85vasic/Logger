@@ -77,7 +77,7 @@ val logger = FilesystemLogger()
 or to provide destination folder where you want your log to be printed: 
 ```
 val file = File("someRootFolder/etc/etc")
-val logger = FilesystemLogger(file)
+val logger = FilesystemLogger(null, file)
 ```
 - Use
 ```
@@ -146,7 +146,8 @@ logger.e( ... ) // Prined in red color.
 To limit logging to build variants pass list of variants to logger constructor.
 For example:
 ```
-val logger = ConsoleLogger(listOf("DEV", "STAGING"))
+val configuration = VariantsConfiguration(BuildConfig.VARIANT, listOf("DEV", "STAGING")
+val logger = ConsoleLogger(configuration)
 ```
 
 

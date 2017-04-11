@@ -2,13 +2,13 @@ package net.milosvasic.tryout.logger
 
 import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
+import net.milosvasic.logger.VariantsConfiguration
 import java.io.File
-
-val logger = ConsoleLogger(listOf("DEV", "STAGING"))
-val loggerFs = FilesystemLogger(getHome(), listOf("DEV", "STAGING"))
 
 fun main(args: Array<String>) {
     val tag = "[main]"
+    val logger = ConsoleLogger(VariantsConfiguration(BuildConfig.VARIANT, listOf("DEV", "STAGING")))
+    val loggerFs = FilesystemLogger(VariantsConfiguration(BuildConfig.VARIANT, listOf("DEV", "STAGING")))
 
     logger.v(tag, "This is a simple verbose log.")
     logger.d(tag, "This is a simple debug log.")

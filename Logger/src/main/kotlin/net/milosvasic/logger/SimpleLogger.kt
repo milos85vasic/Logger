@@ -1,7 +1,7 @@
 package net.milosvasic.logger
 
 
-class SimpleLogger(variants: List<String>? = null) : CommonLogger(variants) {
+class SimpleLogger(variantsConfiguration: VariantsConfiguration? = null) : CommonLogger(variantsConfiguration) {
 
     private val output = System.out
     private val loggingPattern = "%s%s%s"
