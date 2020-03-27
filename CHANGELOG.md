@@ -1,3 +1,7 @@
+# Version 1.2.4
+
+- Switching to Kotlin version 1.3.71
+
 # Version 1.2.3
 
 - Define build variants for which we want logging possible.

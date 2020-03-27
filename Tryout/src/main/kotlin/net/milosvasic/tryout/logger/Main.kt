@@ -2,13 +2,12 @@ package net.milosvasic.tryout.logger
 
 import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
-import net.milosvasic.logger.VariantsConfiguration
-import java.io.File
 
 fun main(args: Array<String>) {
+
     val tag = "[main]"
-    val logger = ConsoleLogger(VariantsConfiguration(BuildConfig.VARIANT, listOf("DEV", "STAGING")))
-    val loggerFs = FilesystemLogger(VariantsConfiguration(BuildConfig.VARIANT, listOf("DEV", "STAGING")))
+    val logger = ConsoleLogger()
+    val loggerFs = FilesystemLogger()
 
     logger.v(tag, "This is a simple verbose log.")
     logger.d(tag, "This is a simple debug log.")
@@ -34,7 +33,7 @@ fun main(args: Array<String>) {
         loggerFs.c(tag, "- - - - - - - - - - - - -")
     }
 
-    for(x in 0..10){
+    for (x in 0..10) {
         Thread(Runnable {
             loggerFs.e(tag, "Appending $x")
         }).start()

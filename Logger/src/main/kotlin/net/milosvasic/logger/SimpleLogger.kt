@@ -1,107 +1,100 @@
 package net.milosvasic.logger
 
 
-class SimpleLogger(variantsConfiguration: VariantsConfiguration? = null) : CommonLogger(variantsConfiguration) {
+class SimpleLogger : CommonLogger() {
 
     private val output = System.out
     private val loggingPattern = "%s%s%s"
 
     @Synchronized
     override fun v(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_WHITE,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.WHITE,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     @Synchronized
     override fun d(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_YELLOW,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.YELLOW,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     @Synchronized
     override fun c(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_GREEN,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.GREEN,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     @Synchronized
     override fun n(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_BLUE,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.BLUE,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     @Synchronized
     override fun i(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_CYAN,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.CYAN,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     @Synchronized
     override fun w(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_PURPLE,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.PURPLE,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     @Synchronized
     override fun e(tag: String, message: String) {
-        if (variantOk()) {
-            output.println(
-                    String.format(
-                            loggingPattern,
-                            LogColor.ANSI_RED,
-                            getMessage(message),
-                            LogColor.ANSI_RESET
-                    )
-            )
-        }
+
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.RED,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
     }
 
     private fun getMessage(message: String): String {

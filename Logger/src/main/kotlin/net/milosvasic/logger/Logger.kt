@@ -15,5 +15,4 @@ interface Logger {
     fun w(tag: String, message: String)
 
     fun e(tag: String, message: String)
-
 }

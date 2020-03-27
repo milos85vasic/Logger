@@ -3,13 +3,13 @@ package net.milosvasic.logger
 import java.text.SimpleDateFormat
 import java.util.*
 
-abstract class CommonLogger(val varinatsConfiguration: VariantsConfiguration? = null) : Logger {
+abstract class CommonLogger : Logger {
 
     private val space = 12
     private val tagLength = 30
     private val dateFormat = SimpleDateFormat("HH:mm:ss:S")
 
-    protected fun getLogLevel(level: LOG_LEVEL): String = getText(level.name, space)
+    protected fun getLogLevel(level: LEVEL): String = getText(level.name, space)
 
     protected fun getDatetime(): String = getText(dateFormat.format(Date()), space - 1)
 
@@ -21,7 +21,7 @@ abstract class CommonLogger(val varinatsConfiguration: VariantsConfiguration? = 
         return getText(tagValue, tagLength)
     }
 
-    open protected fun getMessage(message: String, tag: String): String {
+    protected open fun getMessage(message: String, tag: String): String {
         if (message.contains("\n")) {
             val builder = StringBuilder()
             val items = message.split("\n")
@@ -48,19 +48,4 @@ abstract class CommonLogger(val varinatsConfiguration: VariantsConfiguration? = 
         }
         return builder.toString()
     }
-
-    protected fun variantOk(): Boolean {
-        if (varinatsConfiguration != null
-                && varinatsConfiguration.supportedVariants != null
-                && !varinatsConfiguration.supportedVariants.isEmpty()
-                && varinatsConfiguration.currentModuleVariant != null
-                && !varinatsConfiguration.currentModuleVariant.isEmpty()) {
-
-            return varinatsConfiguration.supportedVariants.contains(
-                    varinatsConfiguration.currentModuleVariant
-            )
-        }
-        return true
-    }
-
 }

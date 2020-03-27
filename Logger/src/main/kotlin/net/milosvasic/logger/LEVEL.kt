@@ -1,6 +1,7 @@
 package net.milosvasic.logger
 
-enum class LOG_LEVEL {
+enum class LEVEL {
+
     VERBOSE,
     DEBUG,
     INFORMATION,
