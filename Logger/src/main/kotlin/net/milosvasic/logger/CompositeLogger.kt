@@ -8,6 +8,10 @@ class CompositeLogger : CommonLogger() {
         return loggers.add(logger)
     }
 
+    fun addLoggers(vararg loggersToAdd: Logger): Boolean {
+        return loggers.addAll(loggersToAdd)
+    }
+
     fun removeLogger(logger: Logger): Boolean {
         return loggers.remove(logger)
     }
