@@ -85,6 +85,20 @@ class SimpleLogger : CommonLogger() {
     }
 
     @Synchronized
+    override fun w(tag: String, exception: Exception) {
+
+        val message = Logger.getMessage(exception)
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.PURPLE,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
+    }
+
+    @Synchronized
     override fun e(tag: String, message: String) {
 
         output.println(

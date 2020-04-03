@@ -106,6 +106,22 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     }
 
     @Synchronized
+    override fun w(tag: String, exception: Exception) {
+
+        val message = Logger.getMessage(exception)
+        val tagValue = getTag(tag)
+        getDestination().appendText(
+                String.format(
+                        loggingPattern,
+                        getLogLevel(LEVEL.WARNING),
+                        getDatetime(),
+                        tagValue,
+                        getMessage(message, tagValue)
+                ) + "\n"
+        )
+    }
+
+    @Synchronized
     override fun e(tag: String, message: String) {
 
         val tagValue = getTag(tag)

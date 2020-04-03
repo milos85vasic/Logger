@@ -52,6 +52,12 @@ class CompositeLogger : CommonLogger() {
         }
     }
 
+    override fun w(tag: String, exception: Exception) {
+        loggers.forEach { logger ->
+            logger.w(tag, exception)
+        }
+    }
+
     override fun e(tag: String, message: String) {
         loggers.forEach { logger ->
             logger.e(tag, message)
