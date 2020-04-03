@@ -123,4 +123,22 @@ class ConsoleLogger : CommonLogger() {
                 )
         )
     }
+
+    @Synchronized
+    override fun e(tag: String, exception: Exception) {
+
+        val message = Logger.getMessage(exception)
+        val tagValue = getTag(tag)
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.RED,
+                        getLogLevel(LEVEL.ERROR),
+                        getDatetime(),
+                        tagValue,
+                        getMessage(message, tagValue),
+                        Color.RESET
+                )
+        )
+    }
 }

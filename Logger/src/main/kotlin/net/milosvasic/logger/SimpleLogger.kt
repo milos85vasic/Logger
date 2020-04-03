@@ -97,6 +97,20 @@ class SimpleLogger : CommonLogger() {
         )
     }
 
+    @Synchronized
+    override fun e(tag: String, exception: Exception) {
+
+        val message = Logger.getMessage(exception)
+        output.println(
+                String.format(
+                        loggingPattern,
+                        Color.RED,
+                        getMessage(message),
+                        Color.RESET
+                )
+        )
+    }
+
     private fun getMessage(message: String): String {
         if (message.contains("\n")) {
             val builder = StringBuilder()

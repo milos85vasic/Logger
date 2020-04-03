@@ -40,7 +40,7 @@ abstract class CommonLogger : Logger {
         return message
     }
 
-    protected fun getText(text: String, length: Int): String {
+    private fun getText(text: String, length: Int): String {
         val builder = StringBuilder()
         builder.append(text)
         for (x in 0..(length - text.length)) {

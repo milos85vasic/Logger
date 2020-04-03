@@ -1,6 +1,10 @@
+# Version 1.3.2
+
+- Support for direct exception logging.
+
 # Version 1.2.4
 
-- Switching to Kotlin version 1.3.71
+- Switching to Kotlin version 1.3.71.
 
 # Version 1.2.3
 
