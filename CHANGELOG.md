@@ -1,3 +1,7 @@
+# Version 1.3.3
+
+- Support for direct exception logging as warnings.
+
 # Version 1.3.2
 
 - Support for direct exception logging.
