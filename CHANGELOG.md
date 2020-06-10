@@ -1,3 +1,7 @@
+# Version 1.3.6
+
+- Composite logger can log into one of its children by end-user choice: String message type added
+
 # Version 1.3.5
 
 - Printing stack traces for exceptions
