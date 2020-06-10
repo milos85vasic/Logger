@@ -1,7 +1,11 @@
-# Version 1.3.4
+# Version 1.3.5
 
 - Printing stack traces for exceptions
 - Composite logger can log into one of its children by end-user choice
+
+# Version 1.3.4
+
+- Cleaning up and upgrading Kotlin version to 1.3.72
 
 # Version 1.3.3
 
