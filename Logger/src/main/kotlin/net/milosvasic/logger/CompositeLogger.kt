@@ -90,4 +90,22 @@ class CompositeLogger : CommonLogger() {
             }
         }
     }
+
+    fun w(tag: String, message: String, clazz: KClass<*>) {
+
+        loggers.forEach { logger ->
+            if (logger::class == clazz) {
+                logger.w(tag, message)
+            }
+        }
+    }
+
+    fun e(tag: String, message: String, clazz: KClass<*>) {
+
+        loggers.forEach { logger ->
+            if (logger::class == clazz) {
+                logger.e(tag, message)
+            }
+        }
+    }
 }
