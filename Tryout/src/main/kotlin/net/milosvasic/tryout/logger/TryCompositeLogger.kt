@@ -3,8 +3,9 @@ package net.milosvasic.tryout.logger
 import net.milosvasic.logger.CompositeLogger
 import net.milosvasic.logger.FilesystemLogger
 import net.milosvasic.logger.SimpleLogger
+import java.lang.Exception
 
-fun main(args: Array<String>) {
+fun main() {
 
     val tag = "[CompositeLogger]"
 
@@ -18,4 +19,10 @@ fun main(args: Array<String>) {
     for (x in 0..10) {
         logger.v(tag, "Item [ $x ]")
     }
+
+    val e = Exception("Trying out")
+    logger.w(tag, e, SimpleLogger::class)
+    logger.e(tag, e, SimpleLogger::class)
+    logger.w(tag, e, FilesystemLogger::class)
+    logger.e(tag, e, FilesystemLogger::class)
 }

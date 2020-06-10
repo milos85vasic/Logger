@@ -1,5 +1,8 @@
 package net.milosvasic.logger
 
+import kotlin.math.log
+import kotlin.reflect.KClass
+
 class CompositeLogger : CommonLogger() {
 
     private val loggers = mutableListOf<Logger>()
@@ -67,6 +70,24 @@ class CompositeLogger : CommonLogger() {
     override fun e(tag: String, exception: Exception) {
         loggers.forEach { logger ->
             logger.e(tag, exception)
+        }
+    }
+
+    fun w(tag: String, exception: Exception, clazz: KClass<*>) {
+
+        loggers.forEach { logger ->
+            if (logger::class == clazz) {
+                logger.w(tag, exception)
+            }
+        }
+    }
+
+    fun e(tag: String, exception: Exception, clazz: KClass<*>) {
+
+        loggers.forEach { logger ->
+            if (logger::class == clazz) {
+                logger.e(tag, exception)
+            }
         }
     }
 }
