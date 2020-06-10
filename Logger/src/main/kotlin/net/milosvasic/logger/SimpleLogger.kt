@@ -87,7 +87,7 @@ class SimpleLogger : CommonLogger() {
     @Synchronized
     override fun w(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception)
+        val message = Logger.getMessage(exception, false)
         output.println(
                 String.format(
                         loggingPattern,
@@ -114,7 +114,7 @@ class SimpleLogger : CommonLogger() {
     @Synchronized
     override fun e(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception)
+        val message = Logger.getMessage(exception, false)
         output.println(
                 String.format(
                         loggingPattern,

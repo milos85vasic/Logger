@@ -108,7 +108,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     @Synchronized
     override fun w(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception)
+        val message = Logger.getMessage(exception, true)
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(
@@ -139,7 +139,7 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
     @Synchronized
     override fun e(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception)
+        val message = Logger.getMessage(exception, true)
         val tagValue = getTag(tag)
         getDestination().appendText(
                 String.format(

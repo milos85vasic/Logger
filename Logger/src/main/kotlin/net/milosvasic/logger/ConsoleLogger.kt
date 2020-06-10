@@ -110,7 +110,7 @@ class ConsoleLogger : CommonLogger() {
     @Synchronized
     override fun w(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception)
+        val message = Logger.getMessage(exception, false)
         val tagValue = getTag(tag)
         output.println(
                 String.format(
@@ -145,7 +145,7 @@ class ConsoleLogger : CommonLogger() {
     @Synchronized
     override fun e(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception)
+        val message = Logger.getMessage(exception, false)
         val tagValue = getTag(tag)
         output.println(
                 String.format(

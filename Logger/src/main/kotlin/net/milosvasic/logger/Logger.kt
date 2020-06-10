@@ -4,21 +4,23 @@ interface Logger {
 
     companion object {
 
-        fun getMessage(e: Exception): String {
+        fun getMessage(e: Exception, fullStackTrace: Boolean = false): String {
 
             var trace = ""
             e.message?.let {
                 trace = "${e::class.simpleName}: $it"
             }
-            val stackTrace = e.stackTrace
-            if (stackTrace.isNotEmpty()) {
-                trace += "\n"
-            }
-            stackTrace.forEachIndexed { index, element ->
-
-                trace += "${element.className} -> method: ${element.methodName} -> at line: ${element.lineNumber}"
-                if (index != stackTrace.lastIndex) {
+            if (fullStackTrace) {
+                val stackTrace = e.stackTrace
+                if (stackTrace.isNotEmpty()) {
                     trace += "\n"
+                }
+                stackTrace.forEachIndexed { index, element ->
+
+                    trace += "${element.className} -> method: ${element.methodName} -> at line: ${element.lineNumber}"
+                    if (index != stackTrace.lastIndex) {
+                        trace += "\n"
+                    }
                 }
             }
             return trace
