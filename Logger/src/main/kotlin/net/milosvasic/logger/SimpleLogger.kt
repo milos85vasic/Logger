@@ -1,7 +1,7 @@
 package net.milosvasic.logger
 
 
-class SimpleLogger : CommonLogger() {
+class SimpleLogger(private val printStacktrace: Boolean = false) : CommonLogger() {
 
     private val output = System.out
     private val loggingPattern = "%s%s%s"
@@ -87,7 +87,7 @@ class SimpleLogger : CommonLogger() {
     @Synchronized
     override fun w(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception, false)
+        val message = Logger.getMessage(exception, printStacktrace)
         output.println(
                 String.format(
                         loggingPattern,
@@ -114,7 +114,7 @@ class SimpleLogger : CommonLogger() {
     @Synchronized
     override fun e(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception, false)
+        val message = Logger.getMessage(exception, printStacktrace)
         output.println(
                 String.format(
                         loggingPattern,

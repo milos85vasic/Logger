@@ -1,6 +1,6 @@
 package net.milosvasic.logger
 
-class ConsoleLogger : CommonLogger() {
+class ConsoleLogger(private val printStacktrace: Boolean = false) : CommonLogger() {
 
     private val output = System.out
     private val loggingPattern = "%s[ %s ][ %s ][ %s ] %s%s"
@@ -110,7 +110,7 @@ class ConsoleLogger : CommonLogger() {
     @Synchronized
     override fun w(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception, false)
+        val message = Logger.getMessage(exception, printStacktrace)
         val tagValue = getTag(tag)
         output.println(
                 String.format(
@@ -145,7 +145,7 @@ class ConsoleLogger : CommonLogger() {
     @Synchronized
     override fun e(tag: String, exception: Exception) {
 
-        val message = Logger.getMessage(exception, false)
+        val message = Logger.getMessage(exception, printStacktrace)
         val tagValue = getTag(tag)
         output.println(
                 String.format(

@@ -17,7 +17,7 @@ interface Logger {
                 }
                 stackTrace.forEachIndexed { index, element ->
 
-                    trace += "${element.className} -> method: ${element.methodName} -> at line: ${element.lineNumber}"
+                    trace += "${element.className}.${element.methodName}(${element.fileName}:${element.lineNumber})"
                     if (index != stackTrace.lastIndex) {
                         trace += "\n"
                     }
