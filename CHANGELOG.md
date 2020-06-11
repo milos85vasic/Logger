@@ -1,3 +1,7 @@
+# Version 1.3.7
+
+- Simple and console loggers can be configured to print stack traces with constructor argument.
+
 # Version 1.3.6
 
 - Composite logger can log into one of its children by end-user choice: String message type added
