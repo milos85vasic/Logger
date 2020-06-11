@@ -1,6 +1,6 @@
 # Version 1.3.7
 
-- Simple and console loggers can be configured to print stack traces with constructor argument
+- Simple and console loggers can be configured to print stack traces with constructor parameter
 
 # Version 1.3.6
 
