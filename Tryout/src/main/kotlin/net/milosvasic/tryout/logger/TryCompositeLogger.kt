@@ -1,6 +1,7 @@
 package net.milosvasic.tryout.logger
 
 import net.milosvasic.logger.CompositeLogger
+import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
 import net.milosvasic.logger.SimpleLogger
 import java.lang.Exception
@@ -11,6 +12,7 @@ fun main() {
 
     val logger = CompositeLogger()
     val simple = SimpleLogger()
+    val consoleLogger = ConsoleLogger(true)
     val filesystem = FilesystemLogger(getHome())
 
     logger.addLogger(simple)
@@ -21,8 +23,10 @@ fun main() {
     }
 
     val e = Exception("Trying out")
-    logger.w(tag, e, SimpleLogger::class)
-    logger.e(tag, e, SimpleLogger::class)
+    logger.removeLogger(simple)
+    logger.addLogger(consoleLogger)
+    logger.w(tag, e, ConsoleLogger::class)
+    logger.e(tag, e, ConsoleLogger::class)
     logger.w(tag, e, FilesystemLogger::class)
     logger.e(tag, e, FilesystemLogger::class)
 }
