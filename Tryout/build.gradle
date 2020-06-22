@@ -30,7 +30,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "net.milosvasic.factory.Launcher"
+    mainClassName = "net.milosvasic.factory.mail.Launcher"
 }
 
 jar {
