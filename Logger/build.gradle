@@ -1,11 +1,14 @@
 buildscript {
+
     repositories {
+
         google()
         mavenCentral()
         jcenter()
     }
 
     dependencies {
+
         classpath "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
@@ -14,6 +17,7 @@ buildscript {
 apply plugin: 'kotlin'
 
 repositories {
+
     google()
     mavenCentral()
     jcenter()
