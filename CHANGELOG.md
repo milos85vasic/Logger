@@ -1,3 +1,7 @@
+# Version 1.3.9
+
+- Tbd.
+
 # Version 1.3.8
 
 - Upgrading Kotlin version to 1.4.0
