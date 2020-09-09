@@ -29,7 +29,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "net.milosvasic.factory.mail.Launcher"
+    mainClassName = "net.milosvasic.tryout.logger.MainKt"
 }
 
 jar {
