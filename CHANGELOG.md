@@ -1,3 +1,8 @@
+# Version 1.3.8
+
+- Upgrading Kotlin version to 1.4.0
+- Gradle cleanup 
+
 # Version 1.3.7
 
 - Simple and console loggers can be configured to print stack traces with constructor parameter
