@@ -3,7 +3,7 @@ package net.milosvasic.tryout.logger
 import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
 
-fun main(args: Array<String>) {
+fun main() {
 
     val tag = "[main]"
     val logger = ConsoleLogger()

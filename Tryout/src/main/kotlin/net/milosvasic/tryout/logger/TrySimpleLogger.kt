@@ -2,7 +2,7 @@ package net.milosvasic.tryout.logger
 
 import net.milosvasic.logger.SimpleLogger
 
-fun main(args: Array<String>) {
+fun main() {
 
     val logger = SimpleLogger()
     val tag = "[SimpleLogger]"
