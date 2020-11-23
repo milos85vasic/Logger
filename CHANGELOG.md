@@ -1,6 +1,6 @@
 # Version 1.3.10
 
-- Tbd.
+- Upgrading Kotlin version to 1.4.20
 
 # Version 1.3.9
 
