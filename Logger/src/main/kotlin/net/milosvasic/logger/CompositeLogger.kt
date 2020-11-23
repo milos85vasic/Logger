@@ -1,6 +1,5 @@
 package net.milosvasic.logger
 
-import kotlin.math.log
 import kotlin.reflect.KClass
 
 class CompositeLogger : CommonLogger() {
