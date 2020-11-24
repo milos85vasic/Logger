@@ -1,3 +1,7 @@
+# Version 1.3.12
+
+- Tbd.
+
 # Version 1.3.11
 
 - Filesystem logger file name suffix.
