@@ -26,16 +26,24 @@ fun main() {
     logger.d(tag, "This is a simple debug log.")
     logger.c(tag, "This is a confirmation.")
 
-    for (x in 0..100) {
-        loggerFs.v(tag, "Verbose [ $x ]")
-        loggerFs.i(tag, "Info [ $x ]")
-        loggerFs.w(tag, "Warning [ $x ]")
-        loggerFs.c(tag, "- - - - - - - - - - - - -")
+    for (suffix in 0..5){
+        if (suffix > 0) {
+
+            loggerFs.setFilenameSuffix("sfx$suffix")
+        }
+        for (x in 0..100) {
+
+            loggerFs.v(tag, "Verbose [ $x ]")
+            loggerFs.i(tag, "Info [ $x ]")
+            loggerFs.w(tag, "Warning [ $x ]")
+            loggerFs.c(tag, "- - - - - - - - - - - - -")
+        }
     }
 
     for (x in 0..10) {
-        Thread(Runnable {
+        Thread {
+
             loggerFs.e(tag, "Appending $x")
-        }).start()
+        }.start()
     }
 }

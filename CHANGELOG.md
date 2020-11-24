@@ -1,3 +1,7 @@
+# Version 1.3.11
+
+- Filesystem logger file name suffix.
+
 # Version 1.3.10
 
 - Upgrading Kotlin version to 1.4.20

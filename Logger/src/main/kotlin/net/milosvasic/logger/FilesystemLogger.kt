@@ -6,9 +6,10 @@ import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 
-class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : CommonLogger() {
+class FilesystemLogger(private val root: File = File(System.getProperty("user.dir"))) : CommonLogger() {
 
     private var extension = "log"
+    private var filenameSuffix = ""
     private val calendar = GregorianCalendar()
     private var structured = AtomicBoolean(true)
     private val loggingPattern = "[ %s ][ %s ][ %s ] %s"
@@ -177,7 +178,15 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
         this.extension = extension
     }
 
+    fun getFilenameSuffix() = filenameSuffix
+
+    fun setFilenameSuffix(suffix: String) {
+
+        filenameSuffix = suffix
+    }
+
     private fun getDestination(): File {
+
         var home = root
         val date = Date()
         if (structured.get()) {
@@ -204,6 +213,6 @@ class FilesystemLogger(val root: File = File(System.getProperty("user.dir"))) : 
         return file
     }
 
-    private fun getFilename(date: Date, suffix: Int) = "${filenameDateFormat.format(date)}_$suffix.$extension"
-
+    private fun getFilename(date: Date, suffix: Int) =
+            "${filenameDateFormat.format(date)}_$filenameSuffix$suffix.$extension"
 }

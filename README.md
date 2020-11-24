@@ -64,13 +64,15 @@ logger.setMaxLogFileSizeInMegabytes(10)
 ```
 
 ### How to use filesystem logger
+
 - Import
 ```
 import net.milosvasic.logger.FilesystemLogger
 ```
+
 - Instantiate
 
-To print logs in file located relatively to app you executed: 
+To print logs in the file located relatively to app you executed: 
 ```
 val logger = FilesystemLogger()
 ```
@@ -83,6 +85,19 @@ val logger = FilesystemLogger(null, file)
 ```
 logger.v(tag, "This is a simple verbose log.")
 ```
+
+- Adding suffix to log file name
+```
+val suffix = "mySuffix"
+logger.setFilenameSuffix("suffix")
+```
+
+Which will result with log file name similar to this one:
+```
+log_mySuffix_0.log
+```
+
+
 
 ## Composite logger 
 It is possible to instantiate logger that will forward log information to multiple loggers.
