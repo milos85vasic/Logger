@@ -4,7 +4,7 @@
 
 # Version 1.3.12
 
-- Upgrading Kotlin version to 1.4.21.
+- Upgrading Kotlin to 1.4.21.
 
 # Version 1.3.11
 
@@ -12,15 +12,15 @@
 
 # Version 1.3.10
 
-- Upgrading Kotlin version to 1.4.20
+- Upgrading Kotlin to 1.4.20
 
 # Version 1.3.9
 
-- Upgrading Kotlin version to 1.4.10
+- Upgrading Kotlin to 1.4.10
 
 # Version 1.3.8
 
-- Upgrading Kotlin version to 1.4.0
+- Upgrading Kotlin to 1.4.0
 - Gradle cleanup 
 
 # Version 1.3.7
