@@ -3,6 +3,6 @@ package net.milosvasic.logger
 object BuildInfo {
 
     const val NAME = "Logger"
-    const val VERSION = "1.3.14"
-    const val VERSION_CODE = (130 * 1000) + 15
+    const val VERSION = "1.3.15"
+    const val VERSION_CODE = (130 * 1000) + 16
 }
