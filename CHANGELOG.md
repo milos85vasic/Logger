@@ -1,3 +1,7 @@
+# Version 1.3.14
+
+- Upgrading Kotlin to 1.4.31.
+
 # Version 1.3.13
 
 - Upgrading Kotlin to 1.4.30.
