@@ -1,6 +1,6 @@
 # Version 1.3.15
 
-- Tbd.
+- Upgrading Kotlin to 1.4.32.
 
 # Version 1.3.14
 
