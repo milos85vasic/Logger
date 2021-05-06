@@ -1,6 +1,6 @@
 ext {
 
-    kotlinVersion = "1.4.32" as Object
+    kotlinVersion = "1.5.0" as Object
 }
 
 buildscript {
@@ -9,7 +9,6 @@ buildscript {
 
         google()
         mavenCentral()
-        jcenter()
     }
 }
 
@@ -17,5 +16,4 @@ repositories {
 
     google()
     mavenCentral()
-    jcenter()
 }
