@@ -1,3 +1,7 @@
+# Version 1.3.17
+
+- Upgrading Kotlin to 1.5.10.
+
 # Version 1.3.16
 
 - Upgrading Kotlin to 1.5.0.
