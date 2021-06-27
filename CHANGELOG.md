@@ -1,3 +1,7 @@
+# Version 1.3.19
+
+- Tbd.
+
 # Version 1.3.18
 
 - Upgrading Kotlin to 1.5.12.
