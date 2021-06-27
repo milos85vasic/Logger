@@ -1,6 +1,6 @@
 ext {
 
-    kotlinVersion = "1.5.10" as Object
+    kotlinVersion = "1.5.20" as Object
 }
 
 buildscript {
